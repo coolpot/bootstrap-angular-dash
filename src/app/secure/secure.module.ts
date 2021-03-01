@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { SecureComponent } from './secure.component';
 import { NavComponent } from './nav/nav.component';
 import { MenuComponent } from './menu/menu.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsersComponent } from './users/users.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -10,10 +13,13 @@ import { MenuComponent } from './menu/menu.component';
   declarations: [
     SecureComponent,
     NavComponent,
-    MenuComponent
+    MenuComponent,
+    DashboardComponent,
+    UsersComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     SecureComponent
