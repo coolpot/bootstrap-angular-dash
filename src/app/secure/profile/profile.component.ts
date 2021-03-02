@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Auth } from 'src/app/classes/auth';
+import { User } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -31,8 +32,8 @@ export class ProfileComponent implements OnInit {
 
   infoSubmit() {
     const data = this.infoForm.getRawValue();
-    this.authService.updateInfo(data).subscribe(res => {
-      console.log(res);
+    this.authService.updateInfo(data).subscribe((user: User) => {
+      Auth.user = user;
     });
   }
 
