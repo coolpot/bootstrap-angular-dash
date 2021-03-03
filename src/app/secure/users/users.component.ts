@@ -10,14 +10,31 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UsersComponent implements OnInit {
   users: User[];
+  currentPage = 1;
+  lastPage: number;
+
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.all().subscribe((res: any) => {
+    this.refresh();
+  }
+
+  refresh() {
+    this.userService.all(this.currentPage).subscribe((res: any) => {
       this.users = res.data;
+      this.lastPage = res.meta.last_page;
     });
   }
 
+  prev() {
+    if (this.currentPage === 1) return;
+    this.currentPage--;
+    this.refresh();
+  }
 
-
+  next() {
+    if (this.currentPage === this.lastPage) return;
+    this.currentPage++;
+    this.refresh();
+  }
 }
