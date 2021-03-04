@@ -6,9 +6,20 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UserService {
+  url: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.url = `${environment.api}/users`;
+  }
   all(page: number) {
-    return this.http.get(`${environment.api}/users?page=${page}`);
+    return this.http.get(`${this.url}?page=${page}`);
+  }
+
+  delete(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
+  }
+
+  create(data) {
+    return this.http.post(this.url, data);
   }
 }

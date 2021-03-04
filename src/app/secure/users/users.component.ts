@@ -37,4 +37,12 @@ export class UsersComponent implements OnInit {
     this.currentPage++;
     this.refresh();
   }
+
+  delete(id: number) {
+    if(confirm('Are you sure you want to delete this record?')) {
+      this.userService.delete(id).subscribe(res => {
+        this.users = this.users.filter(u => u.id !== id);
+      });
+    }
+  }
 }
