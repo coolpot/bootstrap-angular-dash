@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
+import { Response } from 'src/app/interfaces/response';
 
 @Component({
   selector: 'app-users',
@@ -20,7 +21,7 @@ export class UsersComponent implements OnInit {
   }
 
   refresh() {
-    this.userService.all(this.currentPage).subscribe((res: any) => {
+    this.userService.all(this.currentPage).subscribe((res: Response) => {
       this.users = res.data;
       this.lastPage = res.meta.last_page;
     });

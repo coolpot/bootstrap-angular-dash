@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Role } from 'src/app/interfaces/role';
 import { RoleService } from 'src/app/services/role.service';
 import { UserService } from 'src/app/services/user.service';
+import { Response } from 'src/app/interfaces/response';
 
 @Component({
   selector: 'app-user-create',
@@ -26,14 +27,14 @@ export class UserCreateComponent implements OnInit {
       email: '',
       role_id: ''
     });
-    this.roleService.all().subscribe((res: any) => {
+    this.roleService.all().subscribe((res: Response) => {
       this.roles = res.data;
     });
   }
 
   submit() {
     const data = this.form.getRawValue();
-    this.userService.create(data).subscribe(res => {
+    this.userService.create(data).subscribe((res: Response) => {
       this.router.navigate(['/users']);
     });
   }
