@@ -1,18 +1,12 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { RestService } from './rest.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RoleService {
-  url: string;
-
-  constructor(private http: HttpClient) { 
-    this.url = `${environment.api}/roles`;
+export class RoleService extends RestService {
+  endpoint(): string {
+    return 'roles';
   }
-
-  all() {
-    return this.http.get(this.url);
-  }
+  
 }
