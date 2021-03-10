@@ -11,7 +11,6 @@ import { Response } from 'src/app/interfaces/response';
 })
 export class UsersComponent implements OnInit {
   users: User[];
-  currentPage = 1;
   lastPage: number;
 
   constructor(private userService: UserService) { }
@@ -20,23 +19,11 @@ export class UsersComponent implements OnInit {
     this.refresh();
   }
 
-  refresh() {
-    this.userService.all(this.currentPage).subscribe((res: Response) => {
+  refresh(currentPage = 1) {
+    this.userService.all(currentPage).subscribe((res: Response) => {
       this.users = res.data;
       this.lastPage = res.meta.last_page;
     });
-  }
-
-  prev() {
-    if (this.currentPage === 1) return;
-    this.currentPage--;
-    this.refresh();
-  }
-
-  next() {
-    if (this.currentPage === this.lastPage) return;
-    this.currentPage++;
-    this.refresh();
   }
 
   delete(id: number) {

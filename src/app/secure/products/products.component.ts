@@ -10,11 +10,18 @@ import { Response } from 'src/app/interfaces/response';
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
+  lastPage: number;
+
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.all().subscribe((res: Response) => {
+    this.refresh();
+  }
+  
+  refresh(currentPage = 1) {
+    this.productService.all(currentPage).subscribe((res: Response) => {
       this.products = res.data;
+      this.lastPage = res.meta.last_page;
     });
   }
 
@@ -25,4 +32,5 @@ export class ProductsComponent implements OnInit {
       });
     }
   }
+
 }

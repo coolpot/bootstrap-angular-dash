@@ -32,9 +32,7 @@
   </table>
 </div>
 
-<nav>
-  <ul class="pagination">
-    <li class="page-item"><a href="javascript:void(0)" class="page-link" (click)="prev()">Previous</a></li>
-    <li class="page-item"><a href="javascript:void(0)" class="page-link" (click)="next()">Next</a></li>
-  </ul>
-</nav>
+<app-paginator
+    [lastPage]="lastPage"
+    (pageChanged)="refresh($event)"
+></app-paginator>
