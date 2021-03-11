@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 import { Response } from 'src/app/interfaces/response';
+import { ImageService } from 'src/app/services/image.service';
 
 @Component({
   selector: 'app-product-create',

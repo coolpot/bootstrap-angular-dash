@@ -16,6 +16,8 @@ import { RoleEditComponent } from './roles/role-edit/role-edit.component';
 import { ProductsComponent } from './products/products.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { ProductCreateComponent } from './products/product-create/product-create.component';
+import { ProductEditComponent } from './products/product-edit/product-edit.component';
+import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 
 
 
@@ -34,7 +36,9 @@ import { ProductCreateComponent } from './products/product-create/product-create
     RoleEditComponent,
     ProductsComponent,
     PaginatorComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    ProductEditComponent,
+    ImageUploadComponent
   ],
   imports: [
     CommonModule,
