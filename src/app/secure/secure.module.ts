@@ -18,6 +18,8 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
 import { ProductCreateComponent } from './products/product-create/product-create.component';
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderViewComponent } from './orders/order-view/order-view.component';
 
 
 
@@ -38,7 +40,9 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
     PaginatorComponent,
     ProductCreateComponent,
     ProductEditComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    OrdersComponent,
+    OrderViewComponent
   ],
   imports: [
     CommonModule,

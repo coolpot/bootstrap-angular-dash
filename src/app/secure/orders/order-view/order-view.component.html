@@ -1,0 +1,21 @@
+<div class="table-responsive mt-5">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Product Title</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let orderItem of orderItems">
+          <td>{{orderItem.id}}</td>
+          <td>{{orderItem.product_title}}</td>
+          <td>{{orderItem.price}}</td>
+          <td>{{orderItem.quantity}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
