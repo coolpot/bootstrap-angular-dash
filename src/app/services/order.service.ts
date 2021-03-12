@@ -14,4 +14,7 @@ export class OrderService extends RestService {
     return this.http.get(`${environment.api}/export`, { responseType: 'blob' });
   }
 
+  chart() {
+    return this.http.get(`${environment.api}/chart`);
+  }
 }
